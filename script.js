@@ -33,24 +33,24 @@ function calculatePrice() {
     
     if (pickupDate && dropoffDate && dropoffDate >= pickupDate) {
         const days = Math.ceil((dropoffDate - pickupDate) / (1000 * 60 * 60 * 24)) + 1;
-        let dailyRate = 49.99;
+        let dailyRate = 7499; // JMD
         let totalPrice = days * dailyRate;
         
         // Apply weekly discount
         if (days >= 7) {
             const weeks = Math.floor(days / 7);
             const remainingDays = days % 7;
-            totalPrice = (weeks * 279.99) + (remainingDays * dailyRate);
+            totalPrice = (weeks * 41999) + (remainingDays * dailyRate);
         }
         
         // Apply monthly discount
         if (days >= 30) {
             const months = Math.floor(days / 30);
             const remainingDays = days % 30;
-            totalPrice = (months * 999.99) + (Math.ceil(remainingDays / 7) * 279.99);
+            totalPrice = (months * 149999) + (Math.ceil(remainingDays / 7) * 41999);
         }
         
-        document.getElementById('totalPrice').value = '$' + totalPrice.toFixed(2);
+        document.getElementById('totalPrice').value = 'J$' + totalPrice.toLocaleString();
     }
 }
 
