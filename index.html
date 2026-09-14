@@ -3,243 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance Manager Pro - Personal Finance Management</title>
+    <title>Grant Premium Rental - Honda Fit Rental Service</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💰 Finance Manager Pro</h1>
-            <p>Your Complete Personal Finance Management Solution</p>
-        </header>
-
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="overview">Overview</button>
-            <button class="tab-btn" data-tab="income">Income</button>
-            <button class="tab-btn" data-tab="expenses">Expenses</button>
-            <button class="tab-btn" data-tab="budget">Budget</button>
-            <button class="tab-btn" data-tab="debts">Debts</button>
-            <button class="tab-btn" data-tab="taxes">Taxes</button>
-            <button class="tab-btn" data-tab="goals">Goals</button>
-        </nav>
-
-        <!-- OVERVIEW TAB -->
-        <div id="overview" class="tab-content active">
-            <div class="dashboard-grid">
-                <div class="card stat-card">
-                    <h3>Total Income</h3>
-                    <p class="amount income-text" id="totalIncome">$0.00</p>
-                </div>
-                <div class="card stat-card">
-                    <h3>Total Expenses</h3>
-                    <p class="amount expense-text" id="totalExpenses">$0.00</p>
-                </div>
-                <div class="card stat-card">
-                    <h3>Total Debt</h3>
-                    <p class="amount debt-text" id="totalDebt">$0.00</p>
-                </div>
-                <div class="card stat-card">
-                    <h3>Net Balance</h3>
-                    <p class="amount balance-text" id="netBalance">$0.00</p>
-                </div>
-                <div class="card stat-card">
-                    <h3>Tax Liability</h3>
-                    <p class="amount tax-text" id="totalTax">$0.00</p>
-                </div>
-                <div class="card stat-card">
-                    <h3>Savings Rate</h3>
-                    <p class="amount" id="savingsRate">0%</p>
-                </div>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Grant Premium Rental</h1>
             </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#vehicle">Our Vehicle</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            <div class="charts-grid">
-                <div class="card">
-                    <h3>Income vs Expenses</h3>
-                    <canvas id="incomeExpenseChart"></canvas>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Grant Premium Rental</h2>
+            <p>Experience Premium Car Rental at Affordable Prices</p>
+            <p class="hero-subtitle">Rent our exclusive Honda Fit for your next adventure</p>
+            <a href="#vehicle" class="cta-button">Explore Our Vehicle</a>
+        </div>
+    </section>
+
+    <!-- Vehicle Section -->
+    <section id="vehicle" class="vehicle">
+        <div class="container">
+            <h2>Our Featured Vehicle</h2>
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="https://via.placeholder.com/500x400?text=Honda+Fit+2024" alt="Honda Fit" class="car-image">
                 </div>
-                <div class="card">
-                    <h3>Expense Breakdown</h3>
-                    <canvas id="expenseChart"></canvas>
+                <div class="vehicle-details">
+                    <h3>Honda Fit</h3>
+                    <div class="specs">
+                        <div class="spec">
+                            <span class="label">Year:</span>
+                            <span class="value">2024</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Color:</span>
+                            <span class="value">Modern Steel Metallic</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Mileage:</span>
+                            <span class="value">5,000 miles</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Fuel Type:</span>
+                            <span class="value">Gasoline</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Transmission:</span>
+                            <span class="value">Automatic</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Seats:</span>
+                            <span class="value">5</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Luggage Capacity:</span>
+                            <span class="value">52.2 cubic feet</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">MPG:</span>
+                            <span class="value">33 city / 42 highway</span>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <h4>Premium Features:</h4>
+                        <ul>
+                            <li>✓ Backup Camera</li>
+                            <li>✓ Bluetooth Connectivity</li>
+                            <li>✓ Cruise Control</li>
+                            <li>✓ Climate Control</li>
+                            <li>✓ Power Windows & Locks</li>
+                            <li>✓ ABS Braking System</li>
+                            <li>✓ Multiple Airbags</li>
+                            <li>✓ Fully Insured</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- INCOME TAB -->
-        <div id="income" class="tab-content">
-            <div class="card">
-                <h2>💵 Income Management</h2>
-                <form id="incomeForm">
-                    <input type="text" placeholder="Income Source" id="incomeSource" required>
-                    <input type="number" placeholder="Amount" id="incomeAmount" step="0.01" required>
-                    <select id="incomeFrequency" required>
-                        <option value="monthly">Monthly</option>
-                        <option value="yearly">Yearly</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="oneTime">One Time</option>
-                    </select>
-                    <input type="date" id="incomeDate" required>
-                    <button type="submit" class="btn-primary">Add Income</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>Income List</h3>
-                <table id="incomeTable" class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Source</th>
-                            <th>Amount</th>
-                            <th>Frequency</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Daily Rate</h3>
+                    <div class="price">$49.99</div>
+                    <p class="period">per day</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Weekly Rate</h3>
+                    <div class="price">$279.99</div>
+                    <p class="period">7 days</p>
+                    <p class="savings">Save $70 vs daily rate!</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Monthly Rate</h3>
+                    <div class="price">$999.99</div>
+                    <p class="period">30 days</p>
+                    <p class="savings">Save $500 vs daily rate!</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- EXPENSES TAB -->
-        <div id="expenses" class="tab-content">
-            <div class="card">
-                <h2>💳 Expense Tracking</h2>
-                <form id="expenseForm">
-                    <input type="text" placeholder="Expense Category" id="expenseCategory" required>
-                    <input type="text" placeholder="Description" id="expenseDesc">
-                    <input type="number" placeholder="Amount" id="expenseAmount" step="0.01" required>
-                    <select id="expenseType" required>
-                        <option value="Food">Food</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Utilities">Utilities</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Healthcare">Healthcare</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Education">Education</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <input type="date" id="expenseDate" required>
-                    <button type="submit" class="btn-primary">Add Expense</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>Expense History</h3>
-                <table id="expenseTable" class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Description</th>
-                            <th>Amount</th>
-                            <th>Type</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <h2>Why Choose Grant Premium Rental?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🚗 Premium Quality</h3>
+                    <p>Our Honda Fit is meticulously maintained and regularly serviced to ensure the highest quality experience.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 Affordable Pricing</h3>
+                    <p>Get premium service at competitive rates with transparent pricing and no hidden fees.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🛡️ Full Insurance</h3>
+                    <p>Complete insurance coverage included with every rental for your peace of mind.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🕐 Flexible Booking</h3>
+                    <p>Book online instantly and pick up or drop off at times that suit your schedule.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📱 24/7 Support</h3>
+                    <p>Our dedicated support team is available around the clock to assist you.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✨ Premium Experience</h3>
+                    <p>Experience reliability and comfort with our well-equipped, luxury compact vehicle.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- BUDGET TAB -->
-        <div id="budget" class="tab-content">
-            <div class="card">
-                <h2>📊 Budget Planning</h2>
-                <form id="budgetForm">
-                    <input type="text" placeholder="Budget Category" id="budgetCategory" required>
-                    <input type="number" placeholder="Monthly Limit" id="budgetLimit" step="0.01" required>
-                    <button type="submit" class="btn-primary">Set Budget</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>Budget Status</h3>
-                <div id="budgetStatus"></div>
-            </div>
-        </div>
-
-        <!-- DEBTS TAB -->
-        <div id="debts" class="tab-content">
-            <div class="card">
-                <h2>💰 Debt Management</h2>
-                <form id="debtForm">
-                    <input type="text" placeholder="Debt Name (e.g., Student Loan)" id="debtName" required>
-                    <input type="number" placeholder="Total Amount" id="debtAmount" step="0.01" required>
-                    <input type="number" placeholder="Interest Rate (%)" id="debtRate" step="0.01" required>
-                    <input type="number" placeholder="Monthly Payment" id="debtPayment" step="0.01" required>
-                    <input type="date" id="debtDate" required>
-                    <button type="submit" class="btn-primary">Add Debt</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>Debt Overview</h3>
-                <table id="debtTable" class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Debt Name</th>
-                            <th>Total Amount</th>
-                            <th>Interest Rate</th>
-                            <th>Monthly Payment</th>
-                            <th>Payoff Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- TAXES TAB -->
-        <div id="taxes" class="tab-content">
-            <div class="card">
-                <h2>🧮 Tax Calculator</h2>
-                <form id="taxForm">
-                    <input type="number" placeholder="Gross Income" id="grossIncome" step="0.01" required>
-                    <select id="taxBracket" required>
-                        <option value="">Select Tax Bracket</option>
-                        <option value="0.10">10% (Lowest)</option>
-                        <option value="0.12">12%</option>
-                        <option value="0.22">22%</option>
-                        <option value="0.24">24%</option>
-                        <option value="0.32">32%</option>
-                        <option value="0.35">35%</option>
-                        <option value="0.37">37% (Highest)</option>
-                    </select>
-                    <input type="number" placeholder="Deductions" id="deductions" step="0.01" value="0">
-                    <select id="filingStatus" required>
-                        <option value="single">Single</option>
-                        <option value="married">Married Filing Jointly</option>
-                        <option value="head">Head of Household</option>
-                    </select>
-                    <button type="submit" class="btn-primary">Calculate Taxes</button>
-                </form>
-            </div>
-            <div class="card" id="taxResults" style="display:none;">
-                <h3>Tax Calculation Results</h3>
-                <div id="taxResultsContent"></div>
-            </div>
-        </div>
-
-        <!-- GOALS TAB -->
-        <div id="goals" class="tab-content">
-            <div class="card">
-                <h2>🎯 Financial Goals</h2>
-                <form id="goalForm">
-                    <input type="text" placeholder="Goal Name" id="goalName" required>
-                    <input type="number" placeholder="Target Amount" id="goalAmount" step="0.01" required>
-                    <input type="number" placeholder="Current Savings" id="goalSavings" step="0.01" value="0">
-                    <input type="date" id="goalDeadline" required>
-                    <button type="submit" class="btn-primary">Add Goal</button>
-                </form>
-            </div>
-            <div class="card">
-                <h3>Your Goals</h3>
-                <div id="goalsList"></div>
-            </div>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Rental</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="pickupDate">Pick-up Date:</label>
+                    <input type="date" id="pickupDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="dropoffDate">Drop-off Date:</label>
+                    <input type="date" id="dropoffDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="licenseNumber">Driver's License Number:</label>
+                    <input type="text" id="licenseNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="totalPrice">Estimated Total Price:</label>
+                    <input type="text" id="totalPrice" disabled>
+                </div>
+                <button type="submit" class="submit-btn">Complete Booking</button>
+            </form>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Finance Manager Pro. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>123 Premium Avenue<br>Downtown Business District<br>City, State 12345</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <p><a href="mailto:info@grantpremiumrental.com">info@grantpremiumrental.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕒 Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Grant Premium Rental. All rights reserved. Premium car rental service.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a> | 
+                <a href="#vehicle">Vehicle</a> | 
+                <a href="#pricing">Pricing</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
