@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grant Premium Rental - Honda Fit Rental Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a3a52;
+            --secondary-color: #c41e3a;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --border-light: #bdc3c7;
+            --success-color: #27ae60;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f1f2e 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content > p {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .vehicle {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .vehicle h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .vehicle-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .vehicle-details h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .spec .label {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .spec .value {
+            color: var(--text-dark);
+        }
+
+        .features h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .features li {
+            padding: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .pricing {
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .period {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .savings {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .includes {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .includes li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-dark);
+        }
+
+        .includes li:last-child {
+            border-bottom: none;
+        }
+
+        .book-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .book-btn:hover {
+            background-color: #a01630;
+            transform: scale(1.05);
+        }
+
+        .why-us {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .why-us h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--secondary-color);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-light);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(196, 30, 58, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #a01630;
+            transform: scale(1.02);
+        }
+
+        .contact {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f1f2e 100%);
+            color: var(--text-light);
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+        }
+
+        .footer {
+            background-color: #0a1520;
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content > p {
+                font-size: 1.2rem;
+            }
+
+            .vehicle-card {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .features ul {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 50% auto;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .vehicle h2,
+            .pricing h2,
+            .why-us h2,
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .nav ul {
+                gap: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Grant Premium Rental</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#vehicle">Our Vehicle</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Grant Premium Rental</h2>
+            <p>Experience Premium Car Rental at Affordable Prices</p>
+            <p class="hero-subtitle">Rent our exclusive Honda Fit for your next adventure</p>
+            <a href="#vehicle" class="cta-button">Explore Our Vehicle</a>
+        </div>
+    </section>
+
+    <!-- Vehicle Section -->
+    <section id="vehicle" class="vehicle">
+        <div class="container">
+            <h2>Our Featured Vehicle</h2>
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="https://via.placeholder.com/500x400?text=Honda+Fit+2024" alt="Honda Fit" class="car-image">
+                </div>
+                <div class="vehicle-details">
+                    <h3>Honda Fit</h3>
+                    <div class="specs">
+                        <div class="spec">
+                            <span class="label">Year:</span>
+                            <span class="value">2024</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Color:</span>
+                            <span class="value">Modern Steel Metallic</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Mileage:</span>
+                            <span class="value">5,000 miles</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Fuel Type:</span>
+                            <span class="value">Gasoline</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Transmission:</span>
+                            <span class="value">Automatic</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Seats:</span>
+                            <span class="value">5</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">Luggage Capacity:</span>
+                            <span class="value">52.2 cubic feet</span>
+                        </div>
+                        <div class="spec">
+                            <span class="label">MPG:</span>
+                            <span class="value">33 city / 42 highway</span>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <h4>Premium Features:</h4>
+                        <ul>
+                            <li>✓ Backup Camera</li>
+                            <li>✓ Bluetooth Connectivity</li>
+                            <li>✓ Cruise Control</li>
+                            <li>✓ Climate Control</li>
+                            <li>✓ Power Windows & Locks</li>
+                            <li>✓ ABS Braking System</li>
+                            <li>✓ Multiple Airbags</li>
+                            <li>✓ Fully Insured</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Daily Rate</h3>
+                    <div class="price">J$7,499</div>
+                    <p class="period">per day</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Weekly Rate</h3>
+                    <div class="price">J$41,999</div>
+                    <p class="period">7 days</p>
+                    <p class="savings">Save J$10,490 vs daily rate!</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Monthly Rate</h3>
+                    <div class="price">J$149,999</div>
+                    <p class="period">30 days</p>
+                    <p class="savings">Save J$74,970 vs daily rate!</p>
+                    <ul class="includes">
+                        <li>✓ Unlimited Mileage</li>
+                        <li>✓ Full Insurance Coverage</li>
+                        <li>✓ 24/7 Roadside Assistance</li>
+                        <li>✓ Free GPS Navigation</li>
+                        <li>✓ Free Wi-Fi Hotspot</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <h2>Why Choose Grant Premium Rental?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🚗 Premium Quality</h3>
+                    <p>Our Honda Fit is meticulously maintained and regularly serviced to ensure the highest quality experience.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 Affordable Pricing</h3>
+                    <p>Get premium service at competitive rates with transparent pricing and no hidden fees.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🛡️ Full Insurance</h3>
+                    <p>Complete insurance coverage included with every rental for your peace of mind.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🕐 Flexible Booking</h3>
+                    <p>Book online instantly and pick up or drop off at times that suit your schedule.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📱 24/7 Support</h3>
+                    <p>Our dedicated support team is available around the clock to assist you.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>✨ Premium Experience</h3>
+                    <p>Experience reliability and comfort with our well-equipped, luxury compact vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Rental</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="pickupDate">Pick-up Date:</label>
+                    <input type="date" id="pickupDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="dropoffDate">Drop-off Date:</label>
+                    <input type="date" id="dropoffDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="licenseNumber">Driver's License Number:</label>
+                    <input type="text" id="licenseNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="totalPrice">Estimated Total Price:</label>
+                    <input type="text" id="totalPrice" disabled>
+                </div>
+                <button type="submit" class="submit-btn">Complete Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>123 Premium Avenue<br>Downtown Business District<br>Kingston, Jamaica</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+1876123456">(+1) 876-123-4567</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <p><a href="mailto:info@grantpremiumrental.com">info@grantpremiumrental.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕒 Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Grant Premium Rental. All rights reserved. Premium car rental service.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a> | 
+                <a href="#vehicle">Vehicle</a> | 
+                <a href="#pricing">Pricing</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Booking Modal Functions
+        function openBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'block';
+            
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('pickupDate').min = today;
+            document.getElementById('dropoffDate').min = today;
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Calculate rental price based on dates
+        function calculatePrice() {
+            const pickupDate = new Date(document.getElementById('pickupDate').value);
+            const dropoffDate = new Date(document.getElementById('dropoffDate').value);
+            
+            if (pickupDate && dropoffDate && dropoffDate >= pickupDate) {
+                const days = Math.ceil((dropoffDate - pickupDate) / (1000 * 60 * 60 * 24)) + 1;
+                let dailyRate = 7499; // JMD
+                let totalPrice = days * dailyRate;
+                
+                if (days >= 7) {
+                    const weeks = Math.floor(days / 7);
+                    const remainingDays = days % 7;
+                    totalPrice = (weeks * 41999) + (remainingDays * dailyRate);
+                }
+                
+                if (days >= 30) {
+                    const months = Math.floor(days / 30);
+                    const remainingDays = days % 30;
+                    totalPrice = (months * 149999) + (Math.ceil(remainingDays / 7) * 41999);
+                }
+                
+                document.getElementById('totalPrice').value = 'J$' + totalPrice.toLocaleString();
+            }
+        }
+
+        // Update price when dates change
+        document.addEventListener('DOMContentLoaded', function() {
+            const pickupDateInput = document.getElementById('pickupDate');
+            const dropoffDateInput = document.getElementById('dropoffDate');
+            
+            if (pickupDateInput && dropoffDateInput) {
+                pickupDateInput.addEventListener('change', calculatePrice);
+                dropoffDateInput.addEventListener('change', calculatePrice);
+            }
+            
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', handleBookingSubmit);
+            }
+        });
+
+        // Handle booking form submission
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                pickupDate: document.getElementById('pickupDate').value,
+                dropoffDate: document.getElementById('dropoffDate').value,
+                licenseNumber: document.getElementById('licenseNumber').value,
+                totalPrice: document.getElementById('totalPrice').value
+            };
+            
+            if (!validateBooking(formData)) {
+                alert('Please fill in all required fields correctly.');
+                return;
+            }
+            
+            const formattedData = `
+        Booking Confirmation
+        ====================
+        Name: ${formData.firstName} ${formData.lastName}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Pick-up Date: ${formData.pickupDate}
+        Drop-off Date: ${formData.dropoffDate}
+        Driver's License: ${formData.licenseNumber}
+        Total Price: ${formData.totalPrice}
+        
+        Vehicle: Honda Fit 2024
+        
+        Thank you for booking with Grant Premium Rental!
+        A confirmation email has been sent to ${formData.email}
+    `;
+            
+            alert(formattedData);
+            
+            console.log('Booking submitted:', formData);
+            
+            document.getElementById('bookingForm').reset();
+            closeBookingModal();
+        }
+
+        // Validate booking form
+        function validateBooking(data) {
+            if (!data.firstName || !data.lastName || !data.email || !data.phone || 
+                !data.pickupDate || !data.dropoffDate || !data.licenseNumber) {
+                return false;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            
+            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+            if (!phoneRegex.test(data.phone) || data.phone.length < 10) {
+                alert('Please enter a valid phone number.');
+                return false;
+            }
+            
+            const pickupDate = new Date(data.pickupDate);
+            const dropoffDate = new Date(data.dropoffDate);
+            
+            if (dropoffDate < pickupDate) {
+                alert('Drop-off date must be after pick-up date.');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
